@@ -1,12 +1,28 @@
 /* eslint-disable */
 var webpack = require('webpack');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
+
+var plugins = [
+  new CopyWebpackPlugin([
+              // copy styleguide
+              { from: 'node_modules/ndla-styleguide/assets/', to: 'assets'},
+              // copy clients (and dependencies) which does'nt use ES2015 modules
+              { from: 'css', to: 'css' },
+              { from: 'js', to: 'js' },
+              { from: 'lti', to: 'lti' },
+            ])
+
+]
+
+var entries = {
+  'index': './index.html',
+  // Add new clients here
+  'google-custom-search': ['./google-custom-search/index.html', 'babel-polyfill', './google-custom-search/index.js'],
+}
 
 module.exports = {
   context: __dirname,
-  entry: {
-    'index': './index.html',
-    'google-custom-search': ['babel-polyfill', './google-custom-search/index.html', './google-custom-search/index.js'],
-  },
+  entry: entries,
   target: 'web',
   cache: true,
   debug: true,
@@ -40,8 +56,7 @@ module.exports = {
       },
     ]
   },
-
-  plugins: [],
+  plugins: plugins,
   resolve: {
     extensions: ['', '.js', '.json', '.jsx']
   }
