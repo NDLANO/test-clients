@@ -1,0 +1,46 @@
+{
+  "name": "test-clients",
+  "version": "0.1.16",
+  "description": "NDLA Test Clients",
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@stash.knowit.no:7999/ndla/test-clients.git"
+  },
+  "engines": {
+    "node": "~4.4.5"
+  },
+  "scripts": {
+    "pretest": "eslint src",
+    "postinstall": "mkdir build/assets && cp -vr node_modules/ndla-styleguide/assets/* build/assets",
+    "build": "webpack --progress --bail",
+    "start": "webpack-dev-server --inline",
+    "lint": "eslint src"
+  },
+  "author": "ndla@knowit.no",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "babel-core": "6.9.1",
+    "babel-loader": "6.2.4",
+    "babel-plugin-transform-object-rest-spread": "6.8.0",
+    "babel-preset-es2015": "6.9.0",
+    "babel-preset-react": "6.5.0",
+    "eslint": "2.11.1",
+    "eslint-plugin-import": "1.8.1",
+    "eslint-plugin-react": "5.1.1",
+    "file-loader": "0.8.5",
+    "webpack": "1.13.1",
+    "webpack-dev-server": "1.14.1"
+  },
+  "dependencies": {
+    "babel-polyfill": "6.9.1",
+    "classnames": "2.2.5",
+    "date-fns": "1.3.0",
+    "defined": "1.0.0",
+    "isomorphic-fetch": "2.2.1",
+    "lodash": "4.13.1",
+    "ndla-styleguide": "0.1.17",
+    "query-string": "4.2.1",
+    "react": "15.1.0",
+    "react-dom": "15.1.0"
+  }
+}
