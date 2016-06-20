@@ -94,6 +94,10 @@ export default class GoogleCustomSearch extends Component {
       search(filter.key)
     }
 
+    const searchKhan = (type) => {
+      search("more:khan more:pagemap:document-type:" + type)
+    }
+
     const handleSubmit = (event) => {
       event.preventDefault();
       search();
@@ -132,6 +136,29 @@ export default class GoogleCustomSearch extends Component {
               {item.name}
             </li>)}
         </ul>
+        {this.state.selectedFilter === 'more:khan' ?
+          <ul style={{margin: '0 auto', padding: '0 0 0.5em', marginTop: '-3em', maxWidth: '920px', display: 'flex' }}>
+            <li
+              style={{ display: 'inline-block', float: 'left', cursor: 'pointer', padding: '10px 15px', color: '#005987', fontSize: '15px'}}
+              key={1}
+              onClick={() => searchKhan("video")} >
+              Videos
+            </li>
+            <li
+              style={{ display: 'inline-block', float: 'left', cursor: 'pointer', padding: '10px 15px', color: '#005987', fontSize: '15px'}}
+              key={2}
+              onClick={() => searchKhan("article")} >
+              Articles
+            </li>
+            <li
+              style={{ display: 'inline-block', float: 'left', cursor: 'pointer', padding: '10px 15px', color: '#005987', fontSize: '15px'}}
+              key={3}
+              onClick={() => searchKhan("exercise")} >
+              Exercises
+            </li>
+          </ul>
+
+        : null}
         <div className="search-results">
           {this.state.items ? this.state.items.map((item, i) => <SearchResult onPreview={handlePreview} key={i} {...item} />) : <p>Ingen treff</p>}
         </div>
