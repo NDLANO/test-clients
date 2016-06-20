@@ -1,8 +1,21 @@
 import React, { Component, PropTypes } from 'react';
-// import Masthead from '../components/Masthead';
-// import { Wrapper, Content, Footer } from '../common/Layout';
-// import { resolveJsonOrRejectWithError } from '../sources/helpers';
 import Lightbox from './Lightbox';
+
+const PreviewEmbed = ({link, pagemap, onPreview}) => {
+  if (pagemap.videoobject && pagemap.videoobject.length === 1) {
+    const obj = pagemap.videoobject[0];
+    return <button onClick={() => onPreview(obj.embedurl, obj.height, obj.width)} className="button button--outline">Forhåndsvis</button>;
+  } else if (link.startsWith('https://en.wikipedia.org')) {
+    const parts = link.split('/')
+    const title = parts[parts.length - 1];
+    const emebedLink = `https://en.wikipedia.org/w/index.php?title=${title}&printable=yes`
+    return <button onClick={() => onPreview(emebedLink, "720", "100%")} className="button button--outline">Forhåndsvis</button>;
+  } else if (link.startsWith('https://quizlet.com/')) {
+    return <button onClick={() => onPreview("https://quizlet.com/75304482/flashcards/embed", "420", "100%")} className="button button--outline">Forhåndsvis</button>;
+  }
+
+  return null;
+}
 
 const SearchResult = ({title, snippet, link, pagemap, onPreview }) =>
   <div className="search-result">
@@ -15,7 +28,7 @@ const SearchResult = ({title, snippet, link, pagemap, onPreview }) =>
       <div className="search-result_description" dangerouslySetInnerHTML={{__html: snippet}}>
       </div>
       <div style={{padding: '10px 0'}}>
-        {link.startsWith('https://quizlet.com/') ? <button onClick={() => onPreview(link)} className="button button--outline">Forhåndsvis</button> : <button className="button button--outline">Forhåndsvis</button>}
+        <PreviewEmbed link={link} pagemap={pagemap} onPreview={onPreview}/>
       </div>
     </div>
   </div>
@@ -34,9 +47,9 @@ export default class GoogleCustomSearch extends Component {
     super(props);
     this.state = {
       items: [],
-      quizletFilter: 'more:quizlet',
-      khanFilter: 'more:khan',
-      displayPreview: false,
+      oembed: {
+        display: false
+      },
       filters: [
         {name: 'Alle', key: ''},
         {name: 'Khan', key: 'more:khan'},
@@ -57,8 +70,13 @@ export default class GoogleCustomSearch extends Component {
     };
 
 
-    const handlePreview = (link) => {
-      this.setState({displayPreview: true});
+    const handlePreview = (src, height, width) => {
+      this.setState({oembed: {
+        display: true,
+        src,
+        height,
+        width
+      }});
     };
 
     const search = (filter = '') => {
@@ -75,7 +93,7 @@ export default class GoogleCustomSearch extends Component {
       search();
     };
 
-    let onLightboxClose = () => this.setState({displayPreview: false});
+    let onLightboxClose = () => this.setState({oembed: {display: false}});
 
     return (
       <div>
@@ -110,8 +128,8 @@ export default class GoogleCustomSearch extends Component {
         <div className="search-results">
           {this.state.items ? this.state.items.map((item, i) => <SearchResult onPreview={handlePreview} key={i} {...item} />) : <p>Ingen treff</p>}
         </div>
-        <Lightbox display={this.state.displayPreview} onClose={onLightboxClose}>
-          <iframe src="https://quizlet.com/75304482/flashcards/embed" height="410" width="100%"></iframe>
+        <Lightbox display={this.state.oembed.display} onClose={onLightboxClose}>
+          <iframe border="0" src={this.state.oembed.src} height={this.state.oembed.height} width={this.state.oembed.width}></iframe>
         </Lightbox>
       </div>
     );

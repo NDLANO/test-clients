@@ -12,8 +12,6 @@
   "scripts": {
     "clean": "rm -rf build/*",
     "pretest": "eslint src",
-    "copy-styleguide": "mkdir -p build/assets && cp -vr node_modules/ndla-styleguide/assets/* build/assets",
-    "postinstall": "npm run copy-styleguide",
     "build": "webpack --progress --bail",
     "start": "webpack-dev-server --hot --inline",
     "lint": "eslint src"

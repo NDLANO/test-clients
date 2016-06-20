@@ -21,7 +21,7 @@ export default class Lightbox extends React.Component {
     const onClose = this.onCloseButtonClick.bind(this);
 
     return this.state.display ? <div className="lightbox">
-      <div className="lightbox_content" style={{minWidth: '900px'}}>
+      <div className="lightbox_content" style={{minWidth: '1345px'}}>
         <a href="#" className="close-dialog" onClick={onClose}>
           x
         </a>
