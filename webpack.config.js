@@ -10,6 +10,9 @@ var plugins = [
               { from: 'css', to: 'css' },
               { from: 'js', to: 'js' },
               { from: 'lti', to: 'lti' },
+              { from: 'content-api', to: 'content-api' },
+              { from: 'h5p-api', to: 'h5p-api' },
+              { from: 'image-api', to: 'image-api' },
             ])
 
 ]
