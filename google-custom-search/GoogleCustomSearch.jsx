@@ -58,6 +58,7 @@ export default class GoogleCustomSearch extends Component {
         {name: 'Wikipedia', key: 'more:wikipedia'},
         {name: 'Ted', key: 'more:ted'},
       ],
+      selectedFilter: undefined,
       filter: '',
       query: ''
     };
@@ -88,6 +89,11 @@ export default class GoogleCustomSearch extends Component {
         });
     };
 
+    const searchWithFilter = (filter) => {
+      this.setState({selectedFilter: filter.key});
+      search(filter.key)
+    }
+
     const handleSubmit = (event) => {
       event.preventDefault();
       search();
@@ -114,13 +120,14 @@ export default class GoogleCustomSearch extends Component {
             <li
               style={{
                 display: 'inline-block',
+                fontWeight: item.key === this.state.selectedFilter ? 'bold' : 'normal',
                 float: 'left',
                 cursor: 'pointer',
                 padding: '10px 15px',
                 color: '#005987',
                 fontSize: '15px'}}
               key={i}
-              onClick={() => search(item.key)}
+              onClick={() => searchWithFilter(item)}
             >
               {item.name}
             </li>)}
