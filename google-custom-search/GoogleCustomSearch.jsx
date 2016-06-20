@@ -42,6 +42,8 @@ export default class GoogleCustomSearch extends Component {
         {name: 'Khan', key: 'more:khan'},
         {name: 'Quizlet', key: 'more:quizlet'},
         {name: 'Youtube', key: 'more:youtube'},
+        {name: 'Wikipedia', key: 'more:wikipedia'},
+        {name: 'Ted', key: 'more:ted'},
       ],
       filter: '',
       query: ''
@@ -106,7 +108,7 @@ export default class GoogleCustomSearch extends Component {
             </li>)}
         </ul>
         <div className="search-results">
-          {this.state.items.map((item, i) => <SearchResult onPreview={handlePreview} key={i} {...item} />)}
+          {this.state.items ? this.state.items.map((item, i) => <SearchResult onPreview={handlePreview} key={i} {...item} />) : <p>Ingen treff</p>}
         </div>
         <Lightbox display={this.state.displayPreview} onClose={onLightboxClose}>
           <iframe src="https://quizlet.com/75304482/flashcards/embed" height="410" width="100%"></iframe>
