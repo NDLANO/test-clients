@@ -1,5 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import Lightbox from './Lightbox';
+const API_KEY = 'AIzaSyDnw7Y2mhvlUt8C8xJ79Imow6q8HqcJD6g';
+const SEARCH_ENGINE_ID = '002440041655193717423:vmlkbehvgxq';
 
 const PreviewEmbed = ({link, pagemap, onPreview}) => {
   if (pagemap.videoobject && pagemap.videoobject.length === 1) {
@@ -81,7 +83,7 @@ export default class GoogleCustomSearch extends Component {
     };
 
     const search = (filter = '') => {
-      fetch(`https://www.googleapis.com/customsearch/v1?key=AIzaSyDicPKhQKogss0BInZAe6FxJ3FDtMoyhM4&cx=001183900486732250060:meto1wr3d0g&q=${this.state.query} ${filter}`)
+      fetch(`https://www.googleapis.com/customsearch/v1?key=${API_KEY}&cx=${SEARCH_ENGINE_ID}&q=${this.state.query} ${filter}`)
         .then(res => res.json())
         .then(json => {
           console.log(json.items);
