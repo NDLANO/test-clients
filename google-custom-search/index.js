@@ -4,6 +4,6 @@ import GoogleCustomSearch from './GoogleCustomSearch';
 
 
 ReactDOM.render(
-  <GoogleCustomSearch/>,
+  <GoogleCustomSearch />,
   document.getElementById('root')
 );

@@ -4,6 +4,7 @@ export default class Lightbox extends React.Component {
   constructor(props) {
     super(props);
     this.state = { display: props.display };
+    this.onCloseButtonClick = this.onCloseButtonClick.bind(this);
   }
 
   componentWillReceiveProps(props) {
@@ -18,11 +19,10 @@ export default class Lightbox extends React.Component {
 
   render() {
     const {children} = this.props;
-    const onClose = this.onCloseButtonClick.bind(this);
 
     return this.state.display ? <div className="lightbox">
       <div className="lightbox_content" style={{minWidth: '1345px'}}>
-        <a href="#" className="close-dialog" onClick={onClose}>
+        <a href="#" className="close-dialog" onClick={this.onCloseButtonClick}>
           x
         </a>
         {children}

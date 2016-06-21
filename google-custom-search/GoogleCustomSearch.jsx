@@ -8,16 +8,22 @@ const PreviewEmbed = ({link, pagemap, onPreview}) => {
     const obj = pagemap.videoobject[0];
     return <button onClick={() => onPreview(obj.embedurl, obj.height, obj.width)} className="button button--outline">Forhåndsvis</button>;
   } else if (link.startsWith('https://en.wikipedia.org')) {
-    const parts = link.split('/')
+    const parts = link.split('/');
     const title = parts[parts.length - 1];
-    const emebedLink = `https://en.wikipedia.org/w/index.php?title=${title}&printable=yes`
-    return <button onClick={() => onPreview(emebedLink, "720", "100%")} className="button button--outline">Forhåndsvis</button>;
+    const emebedLink = `https://en.wikipedia.org/w/index.php?title=${title}&printable=yes`;
+    return <button onClick={() => onPreview(emebedLink, '720', '100%')} className="button button--outline">Forhåndsvis</button>;
   } else if (link.startsWith('https://quizlet.com/')) {
-    return <button onClick={() => onPreview("https://quizlet.com/75304482/flashcards/embed", "420", "100%")} className="button button--outline">Forhåndsvis</button>;
+    return <button onClick={() => onPreview('https://quizlet.com/75304482/flashcards/embed', '420', '100%')} className="button button--outline">Forhåndsvis</button>;
   }
 
   return null;
-}
+};
+
+PreviewEmbed.propTypes = {
+  link: PropTypes.string.isRequired,
+  pagemap: PropTypes.object.isRequired,
+  onPreview: PropTypes.func.isRequired
+};
 
 const SearchResult = ({title, snippet, link, pagemap, onPreview }) =>
   <div className="search-result">
@@ -30,7 +36,7 @@ const SearchResult = ({title, snippet, link, pagemap, onPreview }) =>
       <div className="search-result_description" dangerouslySetInnerHTML={{__html: snippet}}>
       </div>
       <div style={{padding: '10px 0'}}>
-        <PreviewEmbed link={link} pagemap={pagemap} onPreview={onPreview}/>
+        <PreviewEmbed link={link} pagemap={pagemap} onPreview={onPreview} />
       </div>
     </div>
   </div>
@@ -93,12 +99,12 @@ export default class GoogleCustomSearch extends Component {
 
     const searchWithFilter = (filter) => {
       this.setState({selectedFilter: filter.key});
-      search(filter.key)
-    }
+      search(filter.key);
+    };
 
     const searchKhan = (type) => {
-      search("more:khan more:pagemap:document-type:" + type)
-    }
+      search(`more:khan more:pagemap:document-type:${type}`);
+    };
 
     const handleSubmit = (event) => {
       event.preventDefault();
@@ -143,19 +149,22 @@ export default class GoogleCustomSearch extends Component {
             <li
               style={{ display: 'inline-block', float: 'left', cursor: 'pointer', padding: '10px 15px', color: '#005987', fontSize: '15px'}}
               key={1}
-              onClick={() => searchKhan("video")} >
+              onClick={() => searchKhan('video')}
+            >
               Videos
             </li>
             <li
               style={{ display: 'inline-block', float: 'left', cursor: 'pointer', padding: '10px 15px', color: '#005987', fontSize: '15px'}}
               key={2}
-              onClick={() => searchKhan("article")} >
+              onClick={() => searchKhan('article')}
+            >
               Articles
             </li>
             <li
               style={{ display: 'inline-block', float: 'left', cursor: 'pointer', padding: '10px 15px', color: '#005987', fontSize: '15px'}}
               key={3}
-              onClick={() => searchKhan("exercise")} >
+              onClick={() => searchKhan('exercise')}
+            >
               Exercises
             </li>
           </ul>
