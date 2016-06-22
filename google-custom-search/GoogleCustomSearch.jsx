@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import Lightbox from './Lightbox';
-const API_KEY = 'AIzaSyDnw7Y2mhvlUt8C8xJ79Imow6q8HqcJD6g';
-const SEARCH_ENGINE_ID = '002440041655193717423:vmlkbehvgxq';
+const API_KEY = 'AIzaSyDicPKhQKogss0BInZAe6FxJ3FDtMoyhM4';
+const SEARCH_ENGINE_ID = '001183900486732250060:meto1wr3d0g';
 
 const PreviewEmbed = ({link, pagemap, onPreview}) => {
   if (pagemap.videoobject && pagemap.videoobject.length === 1) {
@@ -65,6 +65,7 @@ export default class GoogleCustomSearch extends Component {
         {name: 'Youtube', key: 'more:youtube'},
         {name: 'Wikipedia', key: 'more:wikipedia'},
         {name: 'Ted', key: 'more:ted'},
+        {name: 'NDLA', key: 'more:ndla'},
       ],
       selectedFilter: undefined,
       filter: '',
