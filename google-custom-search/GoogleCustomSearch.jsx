@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import Lightbox from './Lightbox';
-const API_KEY = 'AIzaSyDicPKhQKogss0BInZAe6FxJ3FDtMoyhM4';
-const SEARCH_ENGINE_ID = '001183900486732250060:meto1wr3d0g';
+const API_KEY = 'AIzaSyDnw7Y2mhvlUt8C8xJ79Imow6q8HqcJD6g';
+const SEARCH_ENGINE_ID = '002440041655193717423:vmlkbehvgxq';
 
 const PreviewEmbed = ({link, pagemap, onPreview}) => {
   if (pagemap.videoobject && pagemap.videoobject.length === 1) {
@@ -14,6 +14,12 @@ const PreviewEmbed = ({link, pagemap, onPreview}) => {
     return <button onClick={() => onPreview(emebedLink, '720', '100%')} className="button button--outline">Forhåndsvis</button>;
   } else if (link.startsWith('https://quizlet.com/')) {
     return <button onClick={() => onPreview('https://quizlet.com/75304482/flashcards/embed', '420', '100%')} className="button button--outline">Forhåndsvis</button>;
+  } else if (link.startsWith('http://ndla.no/')) {
+    const group = link.match(/http:\/\/ndla\.no\/(.+)\/node\/(\d+)/);
+    if (group.length === 3) {
+      const [, lang, id] = group;
+      return <button onClick={() => onPreview(`http://ndla.no/${lang}/easyreader/${id}`, '720', '100%')} className="button button--outline">Forhåndsvis</button>;
+    }
   }
 
   return null;
