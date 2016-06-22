@@ -14,7 +14,7 @@ function searchFor(keyword) {
 
 function searchOk(jsonData){
     $('#resultsection').empty();
-    $.each(jsonData, function(index, element) {
+    $.each(jsonData.results, function(index, element) {
         var previewImg = '<a href="imagedetail.html?id=' + element["id"] + '" target="_blank" class="imgpreview"><img src="' + element["previewUrl"] + '"/></a>';
         $('#resultsection').append(previewImg);
     });
