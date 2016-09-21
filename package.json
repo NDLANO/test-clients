@@ -4,7 +4,7 @@
   "description": "NDLA Test Clients",
   "repository": {
     "type": "git",
-    "url": "ssh://git@stash.knowit.no:7999/ndla/test-clients.git"
+    "url": "ssh://git@github.com:NDLANO/test-clients.git"
   },
   "engines": {
     "node": "~4.4.5"
@@ -41,7 +41,7 @@
     "eslint-plugin-react": "5.2.2",
     "isomorphic-fetch": "2.2.1",
     "lodash": "4.13.1",
-    "ndla-styleguide": "0.1.17",
+    "ndla-styleguide": "0.1.26",
     "query-string": "4.2.1",
     "react": "15.1.0",
     "react-dom": "15.1.0"
