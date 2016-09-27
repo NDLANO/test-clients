@@ -5,7 +5,7 @@ var CopyWebpackPlugin = require('copy-webpack-plugin');
 var plugins = [
   new CopyWebpackPlugin([
               // copy styleguide
-              { from: 'node_modules/ndla-styleguide/assets/', to: 'assets'},
+              { from: 'node_modules/ndla-learningpath-styleguide/assets/', to: 'assets'},
               // copy clients (and dependencies) which does'nt use ES2015 modules
               { from: 'css', to: 'css' },
               { from: 'js', to: 'js' },
