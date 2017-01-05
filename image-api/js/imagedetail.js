@@ -6,7 +6,7 @@
  *
  */
 
-var searchUrl = "/images/";
+var searchUrl = "/image-api/v1images/";
 
 function loadImage(id){
     var request = window.superagent;
