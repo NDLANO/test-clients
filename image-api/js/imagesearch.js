@@ -6,7 +6,7 @@
  *
  */
 
-var searchUrl = "/images/";
+var searchUrl = "/image-api/v1/images/";
 
 function showAdvancedSearch() {
     $('#advancedsearch').toggle("fast");
