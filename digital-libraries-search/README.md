@@ -1,4 +1,6 @@
-# Test client for Google Custom Search
+# Test client for Digital Libraries (uses Google Custom Search)
+
+See: [Digital Libraries](http://allchildrenreading.org/digital-libraries/)
 
 ## Prerequisites
 
@@ -9,16 +11,4 @@
 
 Download CSE definition context file in XML [cse.xml](config/cse.xml).
 
-Download CSE annotation file in xml [annotations.xml](config/annotations.xml).
-
-N.B. Remember to replace *vmlkbehvgxq* with your search engine id in both files before upload to CSE.
-
-## Testable search engine ids with api keys
-
-Google account: Oyvind M @ (knowit.no)
-API-Key: AIzaSyDnw7Y2mhvlUt8C8xJ79Imow6q8HqcJD6g
-Search engine ID: 002440041655193717423:vmlkbehvgxq
-
-Google account: Oyvind M @ (gmail.com)
-API-Key: AIzaSyDicPKhQKogss0BInZAe6FxJ3FDtMoyhM4
-Search engine ID: 001183900486732250060:meto1wr3d0g
+N.B. Remember to replace *eeyn7jawz24* with your search engine id in both files before upload to CSE.
