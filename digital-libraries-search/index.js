@@ -8,10 +8,10 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import GoogleCustomSearch from './GoogleCustomSearch';
+import DigitalLibrariesSearch from './DigitalLibrariesSearch';
 
 
 ReactDOM.render(
-  <GoogleCustomSearch />,
+  <DigitalLibrariesSearch />,
   document.getElementById('root')
 );

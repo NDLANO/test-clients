@@ -35,7 +35,7 @@ SearchResult.propTypes = {
   snippet: PropTypes.string.isRequired,
 };
 
-export default class GoogleCustomSearch extends Component {
+export default class DigitalLibrariesSearch extends Component {
   constructor(props) {
     super(props);
     this.state = {

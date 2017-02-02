@@ -20,7 +20,8 @@ var plugins = [
 var entries = {
   'index': './index.html',
   // Add new clients here
-  'google-custom-search': ['./google-custom-search/index.html', 'babel-polyfill', './google-custom-search/index.js'],
+  // 'google-custom-search': ['./google-custom-search/index.html', 'babel-polyfill', './google-custom-search/index.js'],
+  'digital-libraries-search': ['./digital-libraries-search/index.html', 'babel-polyfill', './digital-libraries-search/index.js'],
 }
 
 module.exports = {
