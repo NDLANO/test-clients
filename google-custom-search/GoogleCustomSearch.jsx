@@ -7,6 +7,8 @@
  */
 
 import React, { Component, PropTypes } from 'react';
+import ButtonPager from './ButtonPager';
+
 const API_KEY = 'AIzaSyDnw7Y2mhvlUt8C8xJ79Imow6q8HqcJD6g';
 const SEARCH_ENGINE_ID = '013854806862222881746:eeyn7jawz24';
 
@@ -50,6 +52,7 @@ export default class GoogleCustomSearch extends Component {
       ],
       selectedFilter: undefined,
       filter: '',
+      page: 1,
       query: ''
     };
   }
@@ -60,18 +63,20 @@ export default class GoogleCustomSearch extends Component {
       this.setState({query: event.target.value});
     };
 
-    const search = (filter = '') => {
-      fetch(`https://www.googleapis.com/customsearch/v1?key=${API_KEY}&cx=${SEARCH_ENGINE_ID}&q=${this.state.query} ${filter}`)
+    const search = (filter = '', page = 1) => {
+      const nextIndex = ((page - 1) * 10) + 1;
+      fetch(`https://www.googleapis.com/customsearch/v1?key=${API_KEY}&cx=${SEARCH_ENGINE_ID}&start=${nextIndex}&q=${this.state.query} ${filter}`)
         .then(res => res.json())
         .then(json => {
-          console.log(json.items);
-          this.setState({items: json.items});
+          const totalResults = json.queries.request ? json.queries.request[0].totalResults : undefined;
+          const lastPage = Math.ceil(totalResults ? totalResults / 10 : 1);
+          this.setState({items: json.items, lastPage, page});
         });
     };
 
-    const searchWithFilter = (filter) => {
+    const searchWithFilter = (filter, page) => {
       this.setState({selectedFilter: filter.key});
-      search(filter.key);
+      search(filter.key, page);
     };
 
 
@@ -107,7 +112,7 @@ export default class GoogleCustomSearch extends Component {
                 fontSize: '15px'
               }}
               key={i}
-              onClick={() => searchWithFilter(item)}
+              onClick={() => searchWithFilter(item, 1)}
             >
               {item.name}
             </li>)}
@@ -115,6 +120,11 @@ export default class GoogleCustomSearch extends Component {
         <div className="search-results">
           {this.state.items ? this.state.items.map((item, i) => <SearchResult key={i} {...item} />) : <p>No Results</p>}
         </div>
+        <ButtonPager
+          page={this.state.page}
+          lastPage={this.state.lastPage ? this.state.lastPage : 1}
+          pagerAction={page => searchWithFilter({key: this.state.selectedFilter}, page)}
+        />
       </div>
     );
   }
