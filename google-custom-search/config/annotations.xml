@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Annotations start="0" num="5" total="5">
+  <Annotation about="*.wikipedia.org/wiki/*" timestamp="0x000535b5da51aa92" href="ChYqLndpa2lwZWRpYS5vcmcvd2lraS8qEJLVxtLdts0C">
+    <Label name="_cse_vmlkbehvgxq" />
+    <Label name="wikipedia" />
+    <AdditionalData attribute="original_url" value="https://*.wikipedia.org/wiki/*" />
+  </Annotation>
+  <Annotation about="www.youtube.com/watch*" score="1" timestamp="0x000535b5d94434f8" href="ChZ3d3cueW91dHViZS5jb20vd2F0Y2gqEPjpkMrdts0C">
+    <Label name="_cse_vmlkbehvgxq" />
+    <Label name="youtube" />
+    <Label name="video" />
+    <AdditionalData attribute="original_url" value="https://www.youtube.com/watch*" />
+  </Annotation>
+  <Annotation about="www.ted.com/talks/*" score="1" timestamp="0x000535b0562ca18d" href="ChN3d3cudGVkLmNvbS90YWxrcy8qEI3DsrGFts0C">
+    <Label name="_cse_vmlkbehvgxq" />
+    <Label name="video" />
+    <Label name="ted" />
+    <AdditionalData attribute="original_url" value="http://www.ted.com/talks/*" />
+  </Annotation>
+  <Annotation about="*.quizlet.com/*" score="1" timestamp="0x0005354ef9be52a2" href="Cg8qLnF1aXpsZXQuY29tLyoQoqX5ze-pzQI">
+    <Label name="_cse_vmlkbehvgxq" />
+    <Label name="quizlet" />
+    <AdditionalData attribute="original_url" value="https://quizlet.com/*" />
+  </Annotation>
+  <Annotation about="www.khanacademy.org/*" score="1" timestamp="0x0005354ee49b16bb" href="ChV3d3cua2hhbmFjYWRlbXkub3JnLyoQu63spO6pzQI">
+    <Label name="_cse_vmlkbehvgxq" />
+    <Label name="khan" />
+    <Label name="video" />
+    <AdditionalData attribute="original_url" value="https://www.khanacademy.org/*" />
+  </Annotation>
+</Annotations>
