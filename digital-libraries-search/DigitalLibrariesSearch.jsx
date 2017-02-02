@@ -13,7 +13,7 @@ const API_KEY = 'AIzaSyDnw7Y2mhvlUt8C8xJ79Imow6q8HqcJD6g';
 const SEARCH_ENGINE_ID = '013854806862222881746:eeyn7jawz24';
 
 const SearchResult = ({title, snippet, link, pagemap }) =>
-  <a href={link}>
+  <a href={link} target="blank" rel="noopener noreferrer">
     <div className="search-result">
       <div className="search-result_img_container" style={{minWidth: '30%'}}>
         {pagemap && pagemap.cse_image && pagemap.cse_image.length > 0 ? <img height="200" width="200" alt="" src={pagemap.cse_image[0].src} /> : null}
