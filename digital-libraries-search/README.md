@@ -1,4 +1,6 @@
-# Test client for learning resources (uses Google Custom Search)
+# Test client for Digital Libraries (uses Google Custom Search)
+
+See: [Digital Libraries](http://allchildrenreading.org/digital-libraries/)
 
 ## Prerequisites
 
@@ -9,6 +11,4 @@
 
 Download CSE definition context file in XML [cse.xml](config/cse.xml).
 
-Download CSE annotation file in xml [annotations.xml](config/annotations.xml).
-
-N.B. Remember to replace *vmlkbehvgxq* with your search engine id in both files before upload to CSE.
+N.B. Remember to replace *eeyn7jawz24* with your search engine id in both files before upload to CSE.

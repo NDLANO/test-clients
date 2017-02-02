@@ -43,7 +43,7 @@
     "lodash": "4.13.1",
     "ndla-learningpath-styleguide": "0.1.27",
     "query-string": "4.2.1",
-    "react": "15.1.0",
-    "react-dom": "15.1.0"
+    "react": "15.4.2",
+    "react-dom": "15.4.2"
   }
 }
