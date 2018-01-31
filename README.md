@@ -1,3 +1,5 @@
+**_DEPRECATED_**
+
 # NDLA Test Client 
 
 Clients to test internal and external services
